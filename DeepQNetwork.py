@@ -53,7 +53,7 @@ class Agent():
         self.action_memory = [0 for i in range(self.mem_size)]
         self.terminal_memory = [False for i in range(self.mem_size)]
 
-        self.Q_network = DeepQNetwork(lr = self.lr, n_actions = n_actions, input_dims = input_dims, layer1_dims = 128, layer2_dims = 128)
+        self.Q_network = DeepQNetwork(lr = self.lr, n_actions = n_actions, input_dims = input_dims, layer1_dims = 256, layer2_dims = 256)
 
     def store_transition(self, state, action, reward, new_state, done):
         index = self.mem_pointer % self.mem_size

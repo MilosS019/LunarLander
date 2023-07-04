@@ -9,11 +9,11 @@ from DeepQNetwork import Agent
 def my_deep_q_learning():
     env = gym.make("LunarLander-v2", render_mode="rgb_array")
     state, info = env.reset(seed=2)
-    episode_num = 600
+    episode_num = 1000
     discovery_decay = 1 / episode_num * 1.25
 
 
-    agent = Agent(gamma=0.99, epsilon=1, batch_size=64, n_actions=4, eps_min = 0.01, input_dims = 8, lr=0.01, eps_dec=discovery_decay)
+    agent = Agent(gamma=0.99, epsilon=1, batch_size=64, n_actions=4, eps_min = 0.01, input_dims = 8, lr=0.001, eps_dec=discovery_decay)
     # agent.load("learnedData.pth")
     scores, eps_history, avg_scores = [], [], [] 
     for index, _ in enumerate(range(episode_num)):
